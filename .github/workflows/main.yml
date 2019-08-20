@@ -8,10 +8,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Dumpref
-        env:
-          GITHUB_CONTEXT: ${{ startsWith('refs/tag', github.ref) }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: I AM A a Tag
+        run: echo "i am a tag"
+        if: startsWith('refs/tag', github.ref)
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
