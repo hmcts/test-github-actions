@@ -5,8 +5,7 @@ on:
   push:
     branches:
       - master
-    tags:
-      - *
+      - refs/tags/*
 
 jobs:
   one:
