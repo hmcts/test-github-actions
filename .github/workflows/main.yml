@@ -10,7 +10,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: I AM A a Tag
         run: echo "i am a tag"
-        if: startsWith('refs/tag', github.ref)
+        if: startsWith(github.ref, 'refs/tags')
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
