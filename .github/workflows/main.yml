@@ -10,7 +10,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Dumpref
         env:
-          GITHUB_CONTEXT: ${{ startsWith(github["refs/tag"]) }}
+          GITHUB_CONTEXT: ${{ startsWith("refs/tag", github["ref"]) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump strategy context
         env:
