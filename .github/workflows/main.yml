@@ -12,9 +12,9 @@ jobs:
         run: echo "i am a tag"
         if: startsWith(github.ref, 'refs/tags')
       - name: hi
-        env:
-           VAR:  ${{ secrets.TEST }}
-        run: echo $VAR
+        secrets:
+          - TEST
+        run: echo $TEST
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
