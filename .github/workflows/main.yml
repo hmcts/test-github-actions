@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_BEFORE: ${{ github.event.before }}
           GITHUB_AFTER: ${{ github.event.after }}
-        run: ./tests/actions-test.sh
+        run: ls -Al && ./tests/actions-test.sh
       - name: I AM A a Tag
         run: echo "i am a tag"
         if: startsWith(github.ref, 'refs/tags')
