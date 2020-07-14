@@ -15,6 +15,11 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Diff before/after push
+        env:
+          GITHUB_BEFORE: ${{ github.event.before }}
+          GITHUB_AFTER: ${{ github.event.after }}
+        run: git fetch origin master:master && git diff-tree --no-commit-id --name-only -r $GITHUB_BEFORE $GITHUB_AFTER
       - name: I AM A a Tag
         run: echo "i am a tag"
         if: startsWith(github.ref, 'refs/tags')
